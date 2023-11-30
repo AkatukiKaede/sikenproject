@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}投稿の削除{% endblock %}
+{% block contents %}
+<br>
+            <form method="POST">
+                <br>
+                <p>削除してもよろしいですか？</p>
+                {% csrf_token %}
+                <button type="submit">削除</button>
+                <a href="{% url 'mywebsite:home' %}" >キャンセル</a>
+{% endblock %}

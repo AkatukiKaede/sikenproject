@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block  title %}投稿ページ{% endblock %}
+{% block contents %}
+<div id="postmovie">
+<form method="POST"  id="entry"
+enctype="multipart/form-data">
+{% csrf_token %}
+<dl>
+    {% for field in form %}
+          <dt>
+          <!-- <label>タグを生成-->
+          {{ field.label_tag }}
+          <!-- フィールドの設定値を<input>タグで出力-->
+          {{ field }}
+        </dt>
+    {% endfor %}
+    <!-- forループここまで -->
+  </dl>
+
+
+<hr>
+<button type="submit" id="submit_button">投稿する</button>
+</form>
+</div>
+{% endblock %}

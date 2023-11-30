@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}投稿完了{% endblock %}
+{% block contents %}
+<h3>
+    投稿が完了しました。今一度投稿されているか<a href="{% url 'moviepost:usercontents' %}">投稿ページ</a>に戻って確認してみてください。
+</h3>
+
+<a href="{% url 'mywebsite:home' %}">ホームに戻る</a>
+{% endblock %}

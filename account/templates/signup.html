@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}サインアップ{% endblock %}
+{% block contents %}
+<hr>
+<div id="signup">
+    <h3>サインアップ</h3>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+            {{ field.help_text }}
+            {% endif %}
+
+            {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+            {% endfor %}
+        </p>
+        {% endfor %}
+        <input type="submit" value="Sign up">
+        <p><a href="{% url 'password_reset' %}">パスワードを忘れたときはこちら</a></p>
+    </form>
+    <br>
+    <p><a href="{% url 'mywebsite:home' %}">ホームに戻る</a></p>
+</div>
+{% endblock %}

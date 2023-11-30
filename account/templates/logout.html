@@ -1,0 +1,11 @@
+<!-- ベーステンプレートを適用する -->
+{% extends 'base.html' %}
+<!-- ヘッダー情報のページタイトルを設定する -->
+{% block title %}ログアウト{% endblock %}
+
+      {% block contents %}
+
+          <h3>ログアウトしました</h3>
+          <!-- トップページのリンクテキスト -->
+          <p><a href="{% url 'mywebsite:home' %}">トップページへ</a><p>
+      {% endblock %}

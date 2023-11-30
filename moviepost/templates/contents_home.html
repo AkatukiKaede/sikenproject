@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}会員限定コンテンツ-Home{% endblock %}
+{% block contents %}
+<div id="wrapper">
+    <div id="main_youtube">
+        <h2>UserContents</h2>
+
+<div id="maincontents">
+<ul>{% for record in object_list %}
+
+<br>
+<li><a href="{% url 'moviepost:usercontents_main' record.pk %}"><img src="{{ record.image1.url }}" alt="" width="320" height="180">{{record.title}}</a></li>
+<br>
+{% endfor %}
+</ul>    
+</div>
+</div>
+</div>
+{% if user.is_authenticated %}
+{% else %}
+<h3>会員登録した方のみ見られるコンテンツです。</h3>
+<p>会員登録は<a href="{% url 'account:signup' %}">こちら</a></p>
+{% endif %}
+{% endblock %}
